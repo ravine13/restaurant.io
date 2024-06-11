@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from models import db,User,Restaurant, Booking,Review
 from random import sample, randint
 from faker import Faker
@@ -40,14 +40,13 @@ def seed_restaurant():
     db.session.add_all(restaurants)
     db.session.commit()
 
-
 def seed_booking():
     bookings = []
     for _ in range(24):
         booking = Booking(
             user_id=User.query.order_by(func.random()).first().id,
             restaurant_id=Restaurant.query.order_by(func.random()).first().id,
-            booking_date=datetime.utcnow() + timedelta(days=randint(1, 30)),
+            booking_date=datetime.now(timezone.utc) + timedelta(days=randint(1, 30)),
             booking_time=datetime.strptime(fake.time(), '%H:%M:%S').time(),
             party_size=randint(1, 10),
             status=sample(['confirmed', 'pending', 'cancelled'], 1)[0]
@@ -66,7 +65,7 @@ def seed_review():
                 user_id=User.query.order_by(func.random()).first().id,
                 rating=randint(1, 5),
                 comment=fake.text(),
-                date_posted=datetime.utcnow() + timedelta(days=randint(1, 365))
+                date_posted=datetime.now(timezone.utc) + timedelta(days=randint(1, 365))
             )
             reviews.append(review)
     db.session.add_all(reviews)
