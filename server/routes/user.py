@@ -48,55 +48,49 @@ def get_users():
     return jsonify(users),200
 
 #fetch single user
-@user_bp.route('/users')
+@user_bp.route('/users/<int:user_id>', methods=['GET'])
 @jwt_required()
-def get_user():
-    current_user_id=get_jwt_identity()
-    user= User.query.get(current_user_id)
+def get_user(user_id):
+    user = User.query.get(user_id)
     if user:
-        return jsonify(user.to_dict()),200
+        return jsonify(user.to_dict()), 200
     else:
         return jsonify({"message": "User not found"}), 404
 
-#update user
-@user_bp.route("/users", methods=['PATCH'])
+@user_bp.route('/users/<int:user_id>', methods=['PATCH'])
 @jwt_required()
-def update_user():
-    current_user_id= get_jwt_identity()
-    user=User.query.get(current_user_id)
+def update_user(user_id):
+    user = User.query.get(user_id)
     if not user:
-        return jsonify({"message":"User not found"}),404
+        return jsonify({"message": "User not found"}), 404
     
-    data=request.get_json()
-    
-    data.pop('password', None)
+    data = request.get_json()
+    data.pop('password', None)  # Avoid updating the password directly
 
     for key, value in data.items():
-        setattr(user,key,value)
+        if hasattr(user, key):
+            setattr(user, key, value)
     db.session.commit()
 
-    return jsonify({"message":"User updated succesfully"}),200
+    return jsonify({"message": "User updated successfully"}), 200
 
 #delete user
-@user_bp.route("/users", methods=["DELETE"])
+@user_bp.route('/users/<int:user_id>', methods=["DELETE"])
 @jwt_required()
-def delete_user():
-    current_user_id= get_jwt_identity()
-    user=User.query.get(current_user_id)
+def delete_user(user_id):
+    user = User.query.get(user_id)
     if user:
         db.session.delete(user)
         db.session.commit()
         return jsonify({"success": "User deleted successfully"}), 200
-
     else:
-        return jsonify({"error":"User not found!"}), 404
-    
+        return jsonify({"error": "User not found!"}), 404
 
 @user_bp.route("/user/restaurant", methods=["GET"])
 @jwt_required()
 def get_user_restaurant():
-    current_user_id=get_jwt_identity()
-    user_restaurants= Restaurant.query.filter_by(owner_id=current_user_id).all()
+    current_user_id = get_jwt_identity()
+    user_restaurants = Restaurant.query.filter_by(owner_id=current_user_id).all()
 
     if user_restaurants:
         serialized_restaurants = [restaurant.to_dict() for restaurant in user_restaurants]

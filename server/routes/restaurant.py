@@ -4,6 +4,8 @@ from flask_jwt_extended import  jwt_required, get_jwt_identity
 
 
 restaurant_bp = Blueprint('restaurant_bp', __name__)
+
+
 #fetch alll restaurants
 @restaurant_bp.route('/restaurants', methods=['GET'])
 def get_all_restaurants():

@@ -4,9 +4,10 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 import os
+from routes import *
 from models import db, User, Restaurant, Booking, Review  # Assuming models.py contains your SQLAlchemy models
 from jwt_config import init_jwt 
-from.routes import user_bp, restaurant_bp, booking_bp, review_bp, auth_bp
+from routes import user_bp, restaurant_bp, booking_bp, review_bp, auth_bp
 
 # Initialize Marshmallow, Bcrypt, and JWTManager globally
 jwt = JWTManager()
