@@ -11,7 +11,7 @@ def init_jwt(app):
     jwt.init_app(app)
 
     @jwt.token_in_blocklist_loader
-    def token_in_blocklist_callback(jwt_header, jwt_data):
-        jti = jwt_data['jti']
+    def check_if_token_in_blocklist(jwt_header, jwt_payload):
+        jti = jwt_payload['jti']
         token = TokenBlocklist.query.filter_by(jti=jti).first()
         return token is not None

@@ -5,6 +5,8 @@ from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 import os
 from models import db, User, Restaurant, Booking, Review  # Assuming models.py contains your SQLAlchemy models
+from jwt_config import init_jwt 
+from.routes import user_bp, restaurant_bp, booking_bp, review_bp, auth_bp
 
 # Initialize Marshmallow, Bcrypt, and JWTManager globally
 jwt = JWTManager()
@@ -20,16 +22,16 @@ def create_app():
     db.init_app(app)
     jwt.init_app(app)
     migrate = Migrate(app, db)
+    init_jwt(app)
     
-    # Register blueprints here
-    # from.views import user_bp, restaurant_bp, booking_bp, review_bp, auth_bp
-    # app.register_blueprint(user_bp)
-    # app.register_blueprint(restaurant_bp)
-    # app.register_blueprint(booking_bp)
-    # app.register_blueprint(review_bp)
-    # app.register_blueprint(auth_bp)
+
+    app.register_blueprint(user_bp)
+    app.register_blueprint(restaurant_bp)
+    app.register_blueprint(booking_bp)
+    app.register_blueprint(review_bp)
+    app.register_blueprint(auth_bp)
     
-    # CORS configuration
+
     CORS(app, resources={r"*": {"origins": "*"}})
     
     return app

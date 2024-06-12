@@ -89,7 +89,7 @@ def delete_user():
         return jsonify({"success": "User deleted successfully"}), 200
 
     else:
-        return jsonify({"error":"User you are trying to delete is not found!"}), 404
+        return jsonify({"error":"User not found!"}), 404
     
 
 @user_bp.route("/user/restaurant", methods=["GET"])
