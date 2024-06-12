@@ -15,7 +15,6 @@ export default function UserProvider({ children }) {
 
   const navigate = useNavigate()
   const apiEndpoint = 'http://127.0.0.1:5555'
-//   const apiEndpoint = 'http://127.0.0.1:5000'
   // add user
   function addUser(username, email, password) {
     fetch(`${apiEndpoint}/users`, {
