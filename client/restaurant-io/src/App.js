@@ -9,7 +9,6 @@ import Reservations from './pages/Reservations'
 import ReservationLayout from './layouts/ReservationLayout'
 import RestaurantBookings from './pages/RestaurantBookings'
 import RestaurantRegistration from './pages/RestaurantRegistration'
-import EditRestaurant from './pages/EditRestaurant'
 import Resetpassword from './pages/Resetpassword'
 import RestaurantsProvider from './context/RestaurantsContext'
 import UserProvider from './context/UserContext'
@@ -34,7 +33,6 @@ export default function App() {
                   <Route path='restaurant' element={<RestaurantBookings />} />
                 </Route>
                 <Route path='/register_restaurant' element={<RestaurantRegistration /> }/>
-                <Route path='/edit_restaurant' element={<EditRestaurant /> }/>
                 <Route path='/reset_password' element={<Resetpassword /> }/>
               </Route>
             </Routes>
