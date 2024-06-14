@@ -2,13 +2,14 @@ import { useContext} from 'react'
 import { Button} from 'flowbite-react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
+import bannerImage from '../assets/images/banner-bg.jpg';
 
 const Home = () => {
     const { currentUser,} = useContext(UserContext)
 
   return (
     <main className="px-4 my-12">
-      <div className="relative flex mx-auto justify-center items-center h-[330px] md:h-[400px] w-full max-w-[1254px] rounded-2xl bg-[url('./assets/images/banner-bg.jpg')] bg-[linear-gradient(to bottom,rgba(0,0,0,0,0.5))] bg-blend-overlay bg-no-repeat bg-cover bg-center after:absolute after:h-full after:w-full after:top-0 after:left-0 after:bg-overlayDark after:rounded-2xl after:z-10 ">
+      <div className="relative flex mx-auto justify-center items-center h-[330px] md:h-[400px] w-full max-w-[1254px] rounded-2xl" style={{ backgroundImage: `url(${bannerImage})` }}>
         <h1 className="relative md:px-10 text-center text-3xl md:text-5xl font-semibold text-white z-30">
           Book Your Spot, at the click of button
         </h1>
