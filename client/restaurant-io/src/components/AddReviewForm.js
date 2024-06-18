@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 
 const AddReview= ({onchange, setOnchange}) => {
-    const { authToken, currentUser, apiEndpoint } = useContext(UserContext)
+    const { authToken, currentUser } = useContext(UserContext)
     const {id} = useParams()
 
     const navigate = useNavigate()
