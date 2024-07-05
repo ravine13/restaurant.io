@@ -11,7 +11,7 @@ export default function Foot() {
         <Footer.Link href="#">Contact</Footer.Link>
         </Footer.LinkGroup>
     </Footer>
-  )
+  ) 
 }
 
 
