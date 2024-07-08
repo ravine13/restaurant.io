@@ -20,7 +20,7 @@ const BookingForm = ({ onchange, setOnchange }) => {
         navigate('/login')
         return
     }
-    fetch(`https://restaurant-io-c3kq.onrender.com//bookings`, {
+    fetch(`https://restaurant-io-c3kq.onrender.com/bookings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
