@@ -10,7 +10,7 @@ const Reservations = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`http://127.0.0.1:5555/bookings`, {
+        fetch(`https://restaurant-io-c3kq.onrender.com/bookings`, {
           method:"GET",
           headers: {
             Authorization: `Bearer ${authToken && authToken}`,

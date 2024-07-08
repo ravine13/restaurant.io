@@ -90,7 +90,7 @@ export default function RestaurantsProvider({children}){
     }
 
     function deleteRestaurant(){
-         fetch(`http://127.0.0.1:5555/restaurants/${currentRestaurant.id}`, {
+         fetch(`https://restaurant-io-c3kq.onrender.com/restaurants/${currentRestaurant.id}`, {
            method: 'DELETE',
            headers: {
              'Content-Type': 'application/json',

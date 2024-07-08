@@ -26,7 +26,7 @@ const RestaurantDetail = () => {
   useEffect(() => {
     setIsLoading(true)
     setError(false)
-    fetch(`http://127.0.0.1:5555/restaurants/${id}`)
+    fetch(`https://restaurant-io-c3kq.onrender.com/restaurants/${id}`)
       .then((res) => {
         if (res.status === 404) {
           setError(true)

@@ -20,7 +20,7 @@ const BookingForm = ({ onchange, setOnchange }) => {
         navigate('/login')
         return
     }
-    fetch(`http://127.0.0.1:5555/bookings`, {
+    fetch(`https://restaurant-io-c3kq.onrender.com//bookings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

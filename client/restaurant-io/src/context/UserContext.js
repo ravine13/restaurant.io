@@ -14,7 +14,7 @@ export default function UserProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null)
 
   const navigate = useNavigate()
-  const apiEndpoint = 'http://127.0.0.1:5555'
+  const apiEndpoint = 'https://restaurant-io-c3kq.onrender.com'
   // add user
   function addUser(username, email, password) {
     fetch(`${apiEndpoint}/users`, {

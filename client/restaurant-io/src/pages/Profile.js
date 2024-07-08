@@ -16,7 +16,7 @@ const Profile = () => {
 
     },[onchange, currentUser, navigate])
   function deleteProfile() {
-    fetch(`http://127.0.0.1:5555/users`, {
+    fetch(`https://restaurant-io-c3kq.onrender.com/users`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

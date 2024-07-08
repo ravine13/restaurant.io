@@ -7,7 +7,7 @@ const Review = ({review, onchange, setOnchange}) => {
     const {authToken, currentUser, apiEndpoint} = useContext(UserContext)
 
     function handleDelete(id){
-        fetch(`http://127.0.0.1:5555/reviews/${id}`, {
+        fetch(`https://restaurant-io-c3kq.onrender.com/reviews/${id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

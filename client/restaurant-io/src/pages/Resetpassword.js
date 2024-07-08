@@ -24,7 +24,7 @@ export default function Resetpassword() {
                 new_password: new_password,
             };
 
-            fetch(`http://127.0.0.1:5555/reset_password`, {
+            fetch(`https://restaurant-io-c3kq.onrender.com/reset_password`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

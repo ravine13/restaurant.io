@@ -14,7 +14,7 @@ const handleSubmit = (event) => {
      const formData = new FormData(event.currentTarget)
      const user = Object.fromEntries(formData)
   
-    fetch(`http://127.0.0.1:5555users`, {
+    fetch(`https://restaurant-io-c3kq.onrender.com/users`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

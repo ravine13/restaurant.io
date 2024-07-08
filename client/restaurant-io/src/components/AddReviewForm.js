@@ -18,7 +18,7 @@ const AddReview= ({onchange, setOnchange}) => {
         const comment = formData.get('comment')
         const rating = formData.get('rating')
         if(!comment || !rating) return
-        fetch(`http://127.0.0.1:5555/reviews`,{
+        fetch(`https://restaurant-io-c3kq.onrender.com//reviews`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
