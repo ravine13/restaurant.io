@@ -14,7 +14,8 @@ import RestaurantsProvider from "./context/RestaurantsContext";
 import UserProvider from "./context/UserContext";
 import Profile from "./pages/Profile";
 import UpdateProfile from "./pages/UpdateProfile";
-// import Foot from "./components/Footer";
+import EditRestaurant from './pages/EditRestaurant'
+
 
 export default function App() {
   return (
@@ -30,8 +31,9 @@ export default function App() {
             <Route path="/update_profile" element={<UpdateProfile />} />
             <Route path="/restaurants/:id" element={<RestaurantDetail />} />
             <Route path="/reservations" element={<ReservationLayout />}>
-              <Route index element={<Reservations />} />
-              <Route path="restaurant" element={<RestaurantBookings />} />
+            <Route index element={<Reservations />} />
+            <Route path="restaurant" element={<RestaurantBookings />} />
+            <Route path='/edit_restaurant' element={<EditRestaurant /> }/>
             </Route>
             <Route
               path="/register_restaurant"
