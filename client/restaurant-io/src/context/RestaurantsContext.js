@@ -17,7 +17,7 @@ export default function RestaurantsProvider({children}){
     const authToken = sessionStorage.getItem('authToken')
 
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5555/restaurants`)
+        fetch(`https://restaurant-io-c3kq.onrender.com/restaurants`)
           .then((res) => res.json())
           .then((data) => {
             setRestaurants(data)
@@ -31,7 +31,7 @@ export default function RestaurantsProvider({children}){
 
 
     function addRestaurant(restaurant){
-        fetch(`http://127.0.0.1:5555/restaurants`, {
+        fetch(`https://restaurant-io-c3kq.onrender.com/restaurants`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export default function RestaurantsProvider({children}){
         })
     }
     function editRestaurant(restaurant){
-        fetch(`http://127.0.0.1:5555/restaurants/${currentRestaurant.id}`, {
+        fetch(`https://restaurant-io-c3kq.onrender.com/restaurants/${currentRestaurant.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ export default function RestaurantsProvider({children}){
         })
     }
     function editRestaurantCapacity(capacity){
-        fetch(`http://127.0.0.1:5555/restaurants/${currentRestaurant.id}`, {
+        fetch(`https://restaurant-io-c3kq.onrender.com/restaurants/${currentRestaurant.id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json'
