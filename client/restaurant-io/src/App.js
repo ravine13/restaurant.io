@@ -33,7 +33,7 @@ export default function App() {
             <Route path="/reservations" element={<ReservationLayout />}>
             <Route index element={<Reservations />} />
             <Route path="restaurant" element={<RestaurantBookings />} />
-            <Route path='/edit_restaurant' element={<EditRestaurant /> }/>
+            <Route path='edit_restaurant' element={<EditRestaurant /> }/>
             </Route>
             <Route
               path="/register_restaurant"
