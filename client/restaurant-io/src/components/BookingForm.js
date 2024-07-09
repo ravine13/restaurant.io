@@ -79,7 +79,7 @@ const BookingForm = ({ onchange, setOnchange }) => {
           required
         />
       </div>
-      <Button gradientDuoTone="cyanToBlue" type="submit">
+      <Button gradientDuoTone="cyanToBlue" className='bg-gradient-to-r from-cyan-500 to-blue-500' type="submit">
         Submit
       </Button>
     </form>
