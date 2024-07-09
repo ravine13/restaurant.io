@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function RestaurantCard({restaurant}) {
   return (
-    <Link to={`https://restaurant-io-c3kq.onrender.com/restaurants/${restaurant.id}`}>
+    <Link to={`/restaurants/${restaurant.id}`}>
       <div className="w-[360px] p-0 border rounded-2xl">
         <img
           className="object-cover w-full h-[240px] rounded-t-2xl"
