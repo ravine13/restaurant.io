@@ -73,7 +73,7 @@ export default function Nav() {
                   isActive ? 'text-cyan-500' : null
                 }
                 to="/signup">
-                <Button gradientDuoTone="cyanToBlue" size="xs">
+                <Button gradientDuoTone="cyanToBlue" className='bg-gradient-to-r from-cyan-500 to-blue-500' size="xs">
                   Sign Up
                 </Button>
               </NavLink>
